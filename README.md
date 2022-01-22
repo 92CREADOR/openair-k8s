@@ -6,7 +6,7 @@ Note: This is both experimental and work in progress.
 
 ## Building OAI Container Images
 ### Build Strategy
-OpenAirInterface (OAI) components have many build-time dependencies, some of which need to be built from source. To ensure fast yet reproducible image builds, we create a common `oai-build-base` image that contains the build-time dependencies for all OAI components. Each component image is then built using the multistage build pattern: First build the OAI component using the `oai-build-base` image, then copy the component and its run-time dependencies into a fresh deployment image.
+OpenAirInterface (OAI) components have many build-time dependencies, some of which need to be built from the source. To ensure fast yet reproducible image builds, we create a common `oai-build-base` image that contains the build-time dependencies for all OAI components. Each component image is then built using the multistage build pattern: First build the OAI component using the `oai-build-base` image, then copy the component and its run-time dependencies into a fresh deployment image.
 
 Images are built based on RHEL8 [Universal Base Images (UBI)](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image) to yield small images with curated, high-quality content.
 
@@ -116,3 +116,4 @@ To remove all resources from the 'oai' namespace plus delete the namespace itsel
 ```sh
 hack/clean_oai_on_k8s
 ```
+
